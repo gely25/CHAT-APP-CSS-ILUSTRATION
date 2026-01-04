@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root{
+ --Purple-300: hsl(276, 100%, 81%);
+ --Purple-600: hsl(276, 55%, 52%);
+ --Gray-500 : hsl(270, 7%, 64%);
+ --Gray-300 : hsl(206, 6%, 79%);
+ --Purple-950 : hsl(271, 36%, 24%);
+ --Pink-500: hsl(293, 100%, 63%);
+ --Purple-500: hsl(264, 100%, 61%);
+ --White: hsl(0, 100%, 100%);
+ --Gray-100 : hsl(270, 20%, 96%);
+ --Purple-950: hsl(271, 36%, 24%);
+ --Pink-400 : hsl(289, 100%, 72%);
+ --Font-size: 16px;
+
+
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--Gray-100);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    font-size: 1rem;
+    font-family: "Rubik";
+
+}
+
+main{
+  
+    width: 75%;
+    position: relative;
+
+}
+.main:before{
+    position: absolute;
+    content: "";
+    background-color:black;
+    top: 10px;
+    min-height: 100vh;
+    width: 3rem;
+    height: 3rem;
+
+}
+.phone{
+    background-color: var(--Gray-100);
+    border-radius: 2.3rem;
+    border: 1rem solid var(--White);
+    margin-top: 5rem;
+    position: relative;
+    overflow: hidden;
+ 
+}
+
+
+/* .phone::before{
+    content: "";
+    position: absolute;
+    background-color: rgb(253, 253, 253);
+    top:10px;
+    width: 10rem;
+    height: 2rem;
+    border-radius: 2rem;
+    top: -0.8em;
+    left: 4em;
+
+  
+} */
+
+
+/* explicación d eporque logramos centrar la pastilla blanca en la aprte de arriba 
+
+left:50% lo que hace es:
+Colocar el borde izquierdo del pseudo-elemento en el 50% del ancho del padre. */
+/* |--------|--------|
+         ↑
+     borde izquierdo */
+
+
+     /* transform: translateX  lo que hace ellipse
+
+      Ese 50% NO se calcula respecto al padre
+      Se calcula respecto al ancho del propio elemento
+
+O sea:
+
+“Muévete hacia la izquierda la mitad de tu propio ancho” */
+
+/* Cuando juntas:
+
+left: 50%;
+transform: translateX(-50%);
+
+
+Pasa esto:
+
+left: 50% → coloca el inicio del elemento en el centro del padre
+
+translateX(-50%) → lo mueve a la izquierda la mitad de su ancho
+
+Resultado → el centro del elemento coincide con el centro del padre
+
+Es un centro matemático, no visual ni aproximado.
+ No importa cuánto mida el elemento
+No importa cuánto mida el padre */
+
+
+/* clamp() significa:
+
+mínimo — ideal — máximo
+
+
+En este caso:
+
+nunca será menor a 120px
+
+intenta ser 40% del padre
+
+nunca será mayor a 160px */
+
+.phone::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%; 
+  transform: translateX(-50%);
+  width: clamp(130px, 40%, 160px);
+  height: 20px;
+  background: white;
+  border-radius: 0 0 18px 18px;
+  z-index: 10;
+}
+
+
+.contact {
+  width: 100%;
+  background: linear-gradient(to right, #8838ff, #e942ff);
+  border-radius: 1.4rem 1.4rem 0.5rem 0.5rem; /* solo abajo */
+  padding: 1rem;
+  display: flex;
+  width: 100%;
+  /* align-items: center alinea todo verticalmente al centro */
+  align-items: center; 
+  gap: 10px;
+  height: 5rem;
+  padding-top: 1.5rem;
+
+}
+
+/* en esta parte usamos el margin-left: auto para unicamente mover el icono a la esquina  */
+.contact span:last-child {
+  margin-left: auto;
+  color: var(--White);
+  margin-top: auto;
+}
+
+
+
+
+/* nunca usar porcentaje en imagenes ya que hace que se distorsione o no funciona bien con flexbox mejor usar clamp max flex para evitar encogimiento  */
+
+.contact img {
+  width: clamp(28px, 8vw, 36px);
+  height: clamp(28px, 8vw, 36px);
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.contact p, .contact h3{
+    color: var(--White);
+}
+
+
+
+.contact h3{
+    font-weight: 500;
+}
+
+.info h3{
+    font-size: 0.8rem;
+}
+
+.info p{
+    font-size: 0.6rem;
+    font-weight: 100;
+    color: var(--Gray-100);
+
+}
+
+.info span{
+    color: var(--White);
+}
+.info{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.4;
+
+}
+.contact span{
+    color: var(--White);
+}
+
+
+
+.chat{
+  
+    padding: 1rem 0.2rem 1rem 1rem;
+}
+
+.message-group-sent{
+   
+}
+
+
+.message-group-sent p {
+    background-color:#ede5f4;
+    margin-bottom: 0.5rem;
+    color: var(--Purple-600);
+    padding: 0.5rem;
+    font-size: 0.5rem;
+    width: 125px;
+    border-radius: 0.8rem 1rem 0.9rem 0.5rem;
+}
+
+.message-group-recived{
+    
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    width: 100%;
+
+ 
+}
+
+.message-group-recived .images{
+    display: flex;
+    margin-left: auto;
+    margin-bottom: 0.5rem;
+    
+
+   
+
+}
+
+
+.message-group-recived .images img{
+    width: 38px;
+    height: auto;
+    margin-right: 0.3rem;
+    border-radius: 0.5rem;
+}
+.message-group-recived p{
+    background-color:#ffffff;
+    margin-bottom: 0.5rem;
+    color: var(--Gray-500);
+    padding: 0.5rem;
+    font-size: 0.5rem;
+    width: 120px;
+    border-radius: 0.9rem 0.8rem 0.5rem 0.5rem;
+    font-weight: 400;
+    margin-left: auto;
+
+}
+
+
+
+
+.price{
+    background: linear-gradient(to right , var(--Pink-500), var(--Purple-500));
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 0.6rem 0.5rem 0.5rem 0.2rem ;
+    height: 30px;
+    width: 145px;
+    position: relative;
+    align-items: baseline;
+    
+
+}
+
+.price::before{
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: transparent;
+    border: 1px solid rgba(201, 193, 193, 0.671);
+    top:50%;
+    left: 8px;
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+.thirty-price p, .one-hour-price p{
+    color: #ffffff;
+
+}
+
+.thirty-price p, .one-hour-price p{
+    font-size: 0.5rem;
+    font-weight: 300;
+}
+
+.thirty-price .amount , .one-hour-price .amount{
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+
