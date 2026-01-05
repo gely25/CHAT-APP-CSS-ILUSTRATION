@@ -1,3 +1,6 @@
+/* mobile-first  */
+
+
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 :root{
@@ -42,16 +45,30 @@ main{
     position: relative;
 
 }
-.main:before{
-    position: absolute;
+body::before{
+    
     content: "";
-    background-color:black;
-    top: 10px;
-    min-height: 100vh;
-    width: 3rem;
-    height: 3rem;
+    position: absolute;
+    top: 0;
+    left: -20%;
+    height: 100vh;
+    width: 60%;
+    height: 70vh;
+    z-index: -1;
+    background-color: var(--Purple-500);
+    border-radius: 0rem 0rem ;
+    border-bottom-right-radius: 100%;
+   
+
+  
 
 }
+
+
+
+
+
+
 .phone{
     background-color: var(--Gray-100);
     border-radius: 2.3rem;
@@ -59,6 +76,7 @@ main{
     margin-top: 5rem;
     position: relative;
     overflow: hidden;
+    padding-right: 0.3rem;
  
 }
 
@@ -219,10 +237,6 @@ nunca será mayor a 160px */
     padding: 1rem 0.2rem 1rem 1rem;
 }
 
-.message-group-sent{
-   
-}
-
 
 .message-group-sent p {
     background-color:#ede5f4;
@@ -261,6 +275,13 @@ nunca será mayor a 160px */
     margin-right: 0.3rem;
     border-radius: 0.5rem;
 }
+
+
+/* recordatorio para sombrear x-offset → 0      (no se mueve a los lados)
+y-offset → 4px    (hacia abajo)
+blur     → 6px    (suavidad)
+color    → negro con baja opacidad */
+
 .message-group-recived p{
     background-color:#ffffff;
     margin-bottom: 0.5rem;
@@ -271,14 +292,21 @@ nunca será mayor a 160px */
     border-radius: 0.9rem 0.8rem 0.5rem 0.5rem;
     font-weight: 400;
     margin-left: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
 
+}
+
+.message-group-recived p:nth-child(3) {
+    width: 80px;
+    text-align: left;
+    
+  
 }
 
 
 
-
 .price{
-    background: linear-gradient(to right , var(--Pink-500), var(--Purple-500));
+   
     margin-bottom: 0.5rem;
     display: flex;
     justify-content: space-between;
@@ -286,10 +314,13 @@ nunca será mayor a 160px */
     height: 30px;
     width: 145px;
     position: relative;
-    align-items: baseline;
+    background: linear-gradient(to right , var(--Pink-500), var(--Purple-500));
     
 
 }
+
+    
+
 
 .price::before{
     content: "";
@@ -312,11 +343,186 @@ nunca será mayor a 160px */
 .thirty-price p, .one-hour-price p{
     font-size: 0.5rem;
     font-weight: 300;
+   
+    
 }
 
 .thirty-price .amount , .one-hour-price .amount{
-    font-size: 0.8rem;
+    font-size: 0.6rem;
     font-weight: 500;
 }
 
 
+
+
+.prices .thirty-price , .prices .one-hour-price {
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+
+}
+
+
+
+.thirty-price .activity {
+  margin-left: 4px;
+}
+
+
+
+.typing-section{
+    background-color: #ffffff;
+    padding: 0.8rem;
+    font-size: 0.5rem;
+    border-radius: 0.8rem;
+    color: var(--Gray-300);
+    margin-top: 0.8rem;
+    position: relative;
+}
+
+
+.typing-section::before {
+  content: ">";
+  position: absolute;
+  color: rgb(255, 255, 255);
+  font-size: 0.75rem;
+  font-weight: 600;
+  top: 50%;
+  right: 1px;
+  transform: translate(-50%, -50%);
+  background-color: var(--Purple-950);
+  border-radius: 50%;
+  width: 1rem;
+  height: 1rem;
+  text-align: center;
+}
+
+.text-description{
+    margin-top: 3rem;
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--Gray-500);
+    
+   
+}
+
+.text-description h2{
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+    color: var(--Purple-950);
+    
+}
+.text-description p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+footer a{
+    text-decoration: none;
+}
+
+footer .attribution{
+    font-size: 0.8rem;
+    margin-top: 1rem;
+}
+
+
+
+
+/* destopk version */
+
+
+@media (min-width: 720px) {
+
+  main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5rem;
+    width: 100%;
+    flex: 1;  /*arregla el problema de al poner margin-top:auto para bajar el footer suba muy arriba */
+
+  
+  }
+
+  main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -10%;
+    width: 38%;
+    height: 83vh;
+    background: linear-gradient(to bottom, #e942ff, #8838ff);
+    border-radius: 0% 0% 50% 50% / 0% 0% 50% 50%;
+    z-index: -1;
+    display: none;
+    
+    }
+
+
+
+    body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -10%;
+        width: 38%;
+        height: 83vh;
+        background: linear-gradient(to bottom, #e942ff, #8838ff);
+        border-radius: 0 0 50% 50%;
+        z-index: -1;
+        }
+
+
+    .phone{
+        background-color: var(--Gray-100);
+        border-radius: 2.3rem;
+        border: 0.5rem solid var(--White);
+        margin-top: 5rem;
+        position: relative;
+        overflow: hidden;
+        padding-right: 0.3rem;
+        width: 250px;
+        margin-left: 250px;
+        flex-shrink: 0; /*hay que sacarle porque por defecto flex usa 1 de shrink */
+
+        
+
+        }
+
+        .text-description{
+            text-align: left;
+            padding-right: clamp(3.75rem, 1.7647rem + 4.4118vw, 5.625rem);
+            margin-right: clamp(3.125rem, -0.1838rem + 7.3529vw, 6.25rem);
+        }
+
+        .text-description h2{
+            font-size: clamp(1rem, -0.0588rem + 2.3529vw, 2rem);
+            font-weight: 500;
+            color: var(--Purple-950);
+        }
+        .text-description p{
+            font-size: clamp(0.875rem, 0.7426rem + 0.2941vw, 1rem);
+        }
+       
+        footer{
+            margin-top: auto;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+
+
+
+  
+
+        
+   
+}
