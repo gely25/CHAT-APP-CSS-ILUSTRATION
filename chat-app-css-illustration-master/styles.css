@@ -58,16 +58,7 @@ body::before{
     background-color: var(--Purple-500);
     border-radius: 0rem 0rem ;
     border-bottom-right-radius: 100%;
-   
-
-  
-
 }
-
-
-
-
-
 
 .phone{
     background-color: var(--Gray-100);
@@ -198,8 +189,6 @@ nunca será mayor a 160px */
     color: var(--White);
 }
 
-
-
 .contact h3{
     font-weight: 500;
 }
@@ -212,7 +201,6 @@ nunca será mayor a 160px */
     font-size: 0.6rem;
     font-weight: 100;
     color: var(--Gray-100);
-
 }
 
 .info span{
@@ -263,12 +251,7 @@ nunca será mayor a 160px */
     margin-left: auto;
     margin-bottom: 0.5rem;
     
-
-   
-
 }
-
-
 .message-group-recived .images img{
     width: 38px;
     height: auto;
@@ -295,16 +278,10 @@ color    → negro con baja opacidad */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
 
 }
-
 .message-group-recived p:nth-child(3) {
     width: 80px;
     text-align: left;
-    
-  
 }
-
-
-
 .price{
    
     margin-bottom: 0.5rem;
@@ -315,12 +292,7 @@ color    → negro con baja opacidad */
     width: 145px;
     position: relative;
     background: linear-gradient(to right , var(--Pink-500), var(--Purple-500));
-    
-
 }
-
-    
-
 
 .price::before{
     content: "";
@@ -342,9 +314,7 @@ color    → negro con baja opacidad */
 
 .thirty-price p, .one-hour-price p{
     font-size: 0.5rem;
-    font-weight: 300;
-   
-    
+    font-weight: 300;   
 }
 
 .thirty-price .amount , .one-hour-price .amount{
@@ -352,25 +322,16 @@ color    → negro con baja opacidad */
     font-weight: 500;
 }
 
-
-
-
 .prices .thirty-price , .prices .one-hour-price {
     
     display: flex;
     justify-content: space-around;
     align-items: center;
-    
-
 }
-
-
 
 .thirty-price .activity {
   margin-left: 4px;
 }
-
-
 
 .typing-section{
     background-color: #ffffff;
@@ -398,21 +359,16 @@ color    → negro con baja opacidad */
   height: 1rem;
   text-align: center;
 }
-
 .text-description{
     margin-top: 3rem;
     text-align: center;
     font-size: 1.5rem;
     color: var(--Gray-500);
-    
-   
 }
-
 .text-description h2{
     font-weight: 600;
     margin-bottom: 1.2rem;
-    color: var(--Purple-950);
-    
+    color: var(--Purple-950); 
 }
 .text-description p {
     font-size: 1.2rem;
@@ -435,7 +391,6 @@ footer .attribution{
 
 
 @media (min-width: 720px) {
-
   main {
     display: flex;
     flex-direction: row;
@@ -443,10 +398,7 @@ footer .attribution{
     gap: 5rem;
     width: 100%;
     flex: 1;  /*arregla el problema de al poner margin-top:auto para bajar el footer suba muy arriba */
-
-  
   }
-
   main::before {
     content: "";
     position: absolute;
@@ -458,11 +410,7 @@ footer .attribution{
     border-radius: 0% 0% 50% 50% / 0% 0% 50% 50%;
     z-index: -1;
     display: none;
-    
     }
-
-
-
     body::before {
         content: "";
         position: absolute;
@@ -474,8 +422,6 @@ footer .attribution{
         border-radius: 0 0 50% 50%;
         z-index: -1;
         }
-
-
     .phone{
         background-color: var(--Gray-100);
         border-radius: 2.3rem;
@@ -487,9 +433,6 @@ footer .attribution{
         width: 250px;
         margin-left: 250px;
         flex-shrink: 0; /*hay que sacarle porque por defecto flex usa 1 de shrink */
-
-        
-
         }
 
         .text-description{
@@ -506,23 +449,50 @@ footer .attribution{
         .text-description p{
             font-size: clamp(0.875rem, 0.7426rem + 0.2941vw, 1rem);
         }
-       
+    
         footer{
             margin-top: auto;
         }
-
         body {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-        }
+        }  
+}
+
+
+/* animacion para que no se vea nada de las brubujas de chat  */
+.bubble {
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  animation: bubble-in 0.6s ease-out forwards;
+}
+
+@keyframes bubble-in {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
 
 
 
+.bubble:nth-of-type(1) { animation-delay: 0.6s; }
+.bubble:nth-of-type(2) { animation-delay: 1.2s; }
+.bubble:nth-of-type(3) { animation-delay: 1.8s; }
+.bubble:nth-of-type(4) { animation-delay: 2.4s; }
+.bubble:nth-of-type(5) { animation-delay: 3s; }
 
-  
 
-        
-   
+.chat {
+  transform: translateY(200px);
+  animation: slide-up 1s ease-out forwards;
+}
+
+
+@keyframes slide-up {
+  to {
+    transform: translateY(0);
+  }
 }
